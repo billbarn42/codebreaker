@@ -1,0 +1,17 @@
+%h1 The Home Page  
+%p  
+Welcome to Codebreaker online, made with Sinatra and HAML.  
+%p  
+OK, you started a game with #{@secret}
+Your turns so far have been
+%table 
+  - @turns.each do |turn|
+    %tr
+      %td= turn[0]
+      %td= turn[1]
+%form{:action => "/guess", :method => "post"}
+  %p
+  %label{:for => ""} Enter your guess
+  %input{:type => "text", :name => "guess"}
+  %p
+  %input{:type => "submit", :value => "Submit!"}

@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'codebreaker'
+
+game = Codebreaker::Game.new(STDIN, STDOUT)
+# at_exit { puts "game over"}
+# at_exit { puts "\n***\nThe secret code was: #{game.secret}\n***}"}
+game.start()
+guess = ""
+game.go(7)
+# while guess = gets.chomp
+# (1..7).each do | turn |
+#   game.guess(gets.chomp)
+#   puts "turn #{turn}"
+# end
