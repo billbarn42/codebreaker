@@ -3,8 +3,8 @@
   This is a simple application using Sinatra and HAML, based on the rules of Mastermind.
 %p
   The game will randomly select a 4-digit number, using the digits between 1 and 6.
-  Your goal is to guess the number before your turns expire. The game "scores" each guess, by returning a
-  %ol "-" for each digit that is correct, but in the wrong place, and a
-  %ol "+" for each digit that is correct, and in the right place.
+  Your goal is to guess the number before your turns expire. The game "scores" each guess, to help you find your way to the solution.
+%p
+  For each digit that you have guessed correctly, in the correct place, you receive a "+". This is equivalent to a "black peg" in the original Mastermind game. For each digit that you have guessed correctly but is NOT in the correct place, you receive a "-". This is equivalent to a "white peg" in the original Mastermind game.
 %p
   So, to summarize, "++++" wins!
