@@ -16,7 +16,7 @@ module Codebreaker
     end
     def takeTurn(guess)
     	@lastMarker = Marker.new(@secret, guess)
-    	@turns << [@lastMarker.to_s, guess]
+    	@turns << [@lastMarker.to_s, guess, @turns.length+1]
     	@lastMarker.to_s
     end
     def turns

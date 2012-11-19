@@ -14,13 +14,16 @@
           %a(href="index")  
             %li Home  
           %a(href="about")  
-            %li About  
+            %li About 
+          %a(href="codebreaker")
+            %li New Game 
       #content
         =yield
-      #side_bar
-        %h1 Side Bar
-        %p
-          This is the side bar of the webpage
+      / #side_bar
+      /   %h1 Side Bar
+      /   %p
+      /     %a(href="codebreaker")
+      /       %li New Game
       #footer
         %p
-          This is the footer.
+          Based on kernel of code from PragProg <span id="BookTitle">The Rspec Book</span>. A Bill Barnett production.

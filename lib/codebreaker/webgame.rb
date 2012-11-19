@@ -3,6 +3,7 @@ require 'sinatra'
 require_relative 'gamesession'
 
 enable :sessions
+# set :public_folder, File.dirname(__FILE__) + '/static'
 
 # require 'codebreaker/gamesession'
 
@@ -11,7 +12,7 @@ get '/hi' do
 end
 get '/codebreaker' do
 	cb = Codebreaker::GameSession.new()
-	secret = cb.secret
+	@secret = cb.secret
 	session['cb'] = cb
 	haml :start
 end
@@ -22,12 +23,22 @@ get '/about' do
 	haml :about
 end
 post '/guess' do
+	if !(params[:turns].to_s == "")
+		session['turns'] = params[:turns]
+	end
 	@guess = params[:guess]
 	@cb = session['cb']
 	@cb.takeTurn(@guess)
 	@turns = @cb.turns
 	@secret = @cb.secret
-
-	haml :guess
- 
+	case 
+	when @turns.last[0] == "++++"  
+	  @msg = "Congratulations, you won!"
+	  haml :gameover
+	when @turns.length >= session['turns'].to_i  
+	  @msg = "Sorry, you lost!"
+	  haml :gameover
+    else 
+	  haml :guess
+	end
 end

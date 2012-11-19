@@ -1,0 +1,15 @@
+%div{:id => "stylized"}
+  Game over!
+  / (the secret is #{@secret})
+  #{@msg}
+  The secret was #{@secret}
+    
+  %table 
+    %th Turn
+    %th Guess
+    %th Result
+    - @turns.each do |turn|
+      %tr
+        %td= turn[2]
+        %td= turn[1]
+        %td= turn[0]
