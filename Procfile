@@ -1,1 +1,1 @@
-web: bundle exec ruby lib/codebreaker/webgame.rb
+web: bundle exec ruby lib/codebreaker/webgame.rb -p $PORT
