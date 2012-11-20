@@ -3,7 +3,10 @@
   / (the secret is #{@secret})
   #{@msg}
   The secret was #{@secret}
-    
+  / %div{:id => displayMarker}
+  - @secret.split("").each do |peg|
+    %img{:src => @pegs[peg], :width => "25", :height => "25"}
+    / #{@pegs[peg]}
   %table 
     %th Turn
     %th Guess

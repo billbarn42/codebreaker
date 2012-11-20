@@ -7,6 +7,18 @@ enable :sessions
 
 # require 'codebreaker/gamesession'
 
+GUESS_IMAGES = {
+    '1' => 'img/Blue.png',
+    '2' => 'img/Brown.png',
+    '3' => 'img/Cyan.png',
+    '4' => 'img/Green.png',
+    '5' => 'img/Orange.png',
+    '6' => 'img/Red.png',
+    '+' => 'img/Black.png',
+    '-' => 'img/Gray.png'
+  }
+
+
 get '/hi' do
 	"gotcha"
 end
@@ -31,6 +43,7 @@ post '/guess' do
 	@cb.takeTurn(@guess)
 	@turns = @cb.turns
 	@secret = @cb.secret
+	@pegs = GUESS_IMAGES
 	case 
 	when @turns.last[0] == "++++"  
 	  @msg = "Congratulations, you won!"

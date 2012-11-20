@@ -157,3 +157,23 @@ font-weight:bold;
 cursor:pointer;
 cursor:hand;
 }
+#displayMarker {
+width: 100px;
+height: auto;
+overflow: hidden;
+}
+#displayMarker img {
+width: 25px;
+height: 25px;
+float: left;
+margin: 0 0px;}
+#displayResults {
+width: 20px;
+height: auto;
+overflow: hidden;
+}
+#displayResults img {
+width: 10px;
+height: 10px;
+float: left;
+margin: 0 0px;}

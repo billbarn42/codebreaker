@@ -8,12 +8,22 @@ Welcome to Codebreaker online, made with Sinatra and HAML.
   %table 
     %th Turn
     %th Guess
+    %th Colors
     %th Result
     - @turns.each do |turn|
       %tr
         %td= turn[2]
         %td= turn[1]
-        %td= turn[0]
+        %td 
+          %div{:id => "displayMarker"}
+            - turn[1].split("").each do |peg|
+              %img{:src => @pegs[peg]}
+            / %img{:src => "img/Red.png", :width => "25", :height => "25"}
+        / <td><img src = "img/Cyan.png" width = "20", height = "20"></td>
+        %td
+          %div{:id => "displayResults"}
+            - turn[0].split("").each do |peg|
+              %img{:src => @pegs[peg]}
 %p
 %p
 %div{:id => "stylized"}
@@ -24,3 +34,13 @@ Welcome to Codebreaker online, made with Sinatra and HAML.
     %p
       %button{:type => "submit"}
         Submit!
+%p
+%div{:id => "stylized"}
+  Legend:
+  / %div{:id => "displayMarker"}
+  %table
+    - @pegs.each do |peg, img|
+      %tr
+        %td= peg
+        %td 
+          %img{:src => img, :width => "25", :height => "25"}
