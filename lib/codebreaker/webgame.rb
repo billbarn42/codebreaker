@@ -26,7 +26,7 @@ get '/codebreaker' do
 	cb = Codebreaker::GameSession.new()
 	@secret = cb.secret
 	session['cb'] = cb
-	haml :start
+	haml :newgame
 end
 get '/index' do
 	haml :index
